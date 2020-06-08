@@ -22,10 +22,10 @@ const getPhrases = function(lyrics){
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\t|\.|\,/gm,"");
   //lyrics = lyrics.replace(/\s/gm," ");
-  lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/g," ")
-  lyrics = lyrics.split(/\n/gm);
-  return removeDups(lyrics);
-
+  lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
+  phrases = lyrics.split(/\n/gm);
+  //phrases = clean(phrases)
+  return removeDups(phrases);
 }
 
 const getTerms = function(lyrics){
@@ -33,8 +33,8 @@ const getTerms = function(lyrics){
   lyrics = lyrics.replace(/\n|\r\n/gm," ");
   lyrics = lyrics.replace(/\?|\!|\.|\,/gm,"")
   lyrics = lyrics.replace(/\s+/gm," ");
-  lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/g," ")
+  lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   terms = lyrics.split(/(\s+)/gm);
-  console.log(terms.indexOf(" "))
+  terms = clean(terms)
   return removeDups(terms)
 }
