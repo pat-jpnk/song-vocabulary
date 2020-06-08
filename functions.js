@@ -11,6 +11,11 @@ const removeDups = xs => {
   return xs.reduce(collect, { seen: {}, result: [] }).result;
 };
 
+const clean = function(arr){
+  return arr.filter(function(elem){
+    return elem.replace(/\s/g,'').length
+  })
+}
 
 
 const getPhrases = function(lyrics){
