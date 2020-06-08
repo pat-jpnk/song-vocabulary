@@ -1,0 +1,76 @@
+https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/
+
+https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript
+
+https://stackoverflow.com/questions/47573035/why-api-calls-arent-working-at-gh-pages
+
+http://jsfiddle.net/cfs2nz9m/
+
+_______________________________________________________
+
+This was supposed to include an automatic translation 
+function via an api, however, it turns out that the veracity of the 
+free translation options tried (e.g. Yandex) were not satisfactory 
+in their accuracy.A higher quality translation solution (e.g. DeepL api)
+could be an alternative.
+
+It will nonetheless be a learning benefit to the student to research
+the terms and sentences on their own to attain a better understanding
+of the different possible variations in meaning. 
+
+
+The result set might contain the same word with differing capitalization.
+This might be a legitimate cicumstance in the language. Incase it is not,
+this could be mitigated programmatically. This entails however the two 
+problems of detecting when this is illigitimate and if so, which of the 
+two is correct. It is thus left to the user to discern during their study
+what is right.
+
+Watch out!
+
+Some websites will include extra promotional annotiation when
+you copy and paste lyrics of them
+
+________________________________________________________
+
+- remove (".",",":","!","?","&","/")
+- only remove "?" "!" for terms list
+ 
+- split by space and split by newline 
+
+- remove duplicates for both groups
+
+- add translations to both (query size big enough ?) 
+
+- write file and present for download
+
+________________________________________________________
+
+- ask for artist/songname (use as file name ?) 
+
+- how to handle invalid things to translate (Names, "sounds" e.g. "Boom, Oy, Ay")
+
+- does the html textarea field insert newline characters ?
+
+- use <pre></pre> tag ?
+
+
+
+
+- replace "\r\n" with "\n"
+  
+
+- split(" ") THEN remove "" (i.e. all empty array entries that only contain a space)
+
+
+______________________________________________________
+user workflow: 
+
+- enter songtext
+
+- select file output format 
+
+- click "extract vocabulary"
+
+- download file
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song vocabulary</title>
+</head>
+<body style="background-color: lightblue"> 
+
+		
+	<form>
+
+	<textarea id="lyrics" name="lyrics" cols="50" rows="20">
+	Еще одна минута вечера
+	И мы с тобой вот-вот увидимся
+	Ты будешь говорить о вечности
+	А я курить и хотеть просто близости
+	Еще одна минута вечера
+	И мы с тобой вот-вот увидимся
+	Ты будешь говорить о вечности
+	А я курить и хотеть просто близости
+	</textarea>
+
+
+	<button id="extract-button">Extract vocabulary</button>
+
+	</form>
+	
+	<script src="functions.js"></script>
+
+	<script>
+
+			document.querySelector('#extract-button').addEventListener('click', function(e){
+				e.preventDefault()
+				let d = document.querySelector('#lyrics').value;
+				let lyrics = document.querySelector('#lyrics').value
+				lyrics = lyrics.trim();
+				lyrics = lyrics.replace(/\t|\.|\,/gm,"");
+
+				console.log(getPhrases(lyrics))
+
+				console.log(getTerms(lyrics))
+
+				//console.log(lyrics.split(/\n/gm));
+
+
+			//	lyrics = lyrics.replace(/\t|\.|\,/gm,"");
+
+	//			lyrics.replace(/\s+/gm," "); //intentional
+				lyrics = lyrics.replace(/\s/gm," ");
+					
+				// terms without newline
+				termString = lyrics.replace(/\n|\r\n/gm," ");
+				termString = termString.replace(/\?|\!/,"");
+					
+				let terms = termString.split(/(\s+)/gm);
+				
+				terms = removeDups(terms);
+					
+				// phrases with newline
+
+				//	console.log(lyrics);
+
+				let phrases = lyrics.split(/\n|\r\n/gm);
+
+				//console.log(phrases);
+
+				phrases = removeDups(phrases);
+
+			
+				/**
+				s1 = phrases[0]
+				s2 = phrases[4]
+
+					for (let index=0; index < s1.length; ++index ){
+						console.log("char" + index + ": " + s1.charCodeAt(index));
+					}
+
+					for (let index=0; index < s2.length; ++index){
+						console.log("char" + index + ": " + s2.charCodeAt(index));
+					}
+				**/
+
+		//		console.log(terms);
+
+				/**
+
+				// console.log(fuck.replace(/\?|\!|\.|\,/gm,""))
+
+
+			
+				// replace "\t" with ""
+			    let dd = d.replace(/\t/gm,"");
+				dd.replace(" ", " ");
+			   	
+				let withNewLine = (d.replace(/\t/gm,""));
+					
+			    let withoutNewLine = dd.replace(/\n|\r\n/gm," ");
+				
+
+				// print results
+				
+				//console.log(withoutNewLine.split(" "));
+
+                console.log(withoutNewLine.split(/(\s+)/));
+	
+				let result = withNewLine.split("\n");
+
+				console.log(removeDups(result))
+
+				console.log(withNewLine.split("\n"));
+
+				//console.log(d)
+				// replace \r\n with \n
+				//console.log(d.split(" "))
+
+
+				// remove empty array entries 
+				// remove "-","!","?",""
+
+				**/
+
+			})
+	
+	</script>
+
+	
+</body>
+</html>
