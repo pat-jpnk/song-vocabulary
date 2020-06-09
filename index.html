@@ -24,6 +24,10 @@
 	<button id="extract-button">Extract vocabulary</button>
 
 	</form>
+
+	<h4 id="phraseCount"></h4>
+
+	<h4 id="termsCount"></h4>
 	
 	<script src="functions.js"></script>
 
@@ -36,9 +40,21 @@
 				lyrics = lyrics.trim();
 				lyrics = lyrics.replace(/\t|\.|\,/gm,"");
 
-				console.log(getPhrases(lyrics))
+				const phrases_ = getPhrases(lyrics)
+				const terms_ = getTerms(lyrics)
 
-				console.log(getTerms(lyrics))
+
+				let phraseCount = document.querySelector('#termsCount')
+				let termCount = document.querySelector('#phraseCount')
+
+
+				phraseCount.textContent = "Unique phrases: " + phrases_.length.toString()
+				termCount.textContent = "Unique terms: " + terms_.length.toString()
+
+				console.log(phrases_)
+				console.log(terms_)
+
+
 
 				//console.log(lyrics.split(/\n/gm));
 
@@ -49,7 +65,7 @@
 				lyrics = lyrics.replace(/\s/gm," ");
 					
 				// terms without newline
-				termString = lyrics.replace(/\n|\r\n/gm," ");
+				let termString = lyrics.replace(/\n|\r\n/gm," ");
 				termString = termString.replace(/\?|\!/,"");
 					
 				let terms = termString.split(/(\s+)/gm);
