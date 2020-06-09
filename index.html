@@ -22,6 +22,8 @@
 
 
 	<button id="extract-button">Extract vocabulary</button>
+	
+	<button id="clear-button">Clear</button>
 
 	</form>
 
@@ -32,6 +34,12 @@
 	<script src="functions.js"></script>
 
 	<script>
+
+
+			document.querySelector('#clear-button').addEventListener('click', function(e){
+				e.preventDefault()
+				document.querySelector('#lyrics').value = ""
+			})
 
 			document.querySelector('#extract-button').addEventListener('click', function(e){
 				e.preventDefault()
@@ -46,7 +54,6 @@
 
 				let phraseCount = document.querySelector('#termsCount')
 				let termCount = document.querySelector('#phraseCount')
-
 
 				phraseCount.textContent = "Unique phrases: " + phrases_.length.toString()
 				termCount.textContent = "Unique terms: " + terms_.length.toString()

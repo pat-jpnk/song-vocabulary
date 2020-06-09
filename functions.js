@@ -18,13 +18,19 @@ const clean = function(arr){
 }
 
 
+
+const buildTextFile = function(terms, phraeses){
+  //...
+}
+
+
 const getPhrases = function(lyrics){
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\t|\.|\,/gm,"");
   //lyrics = lyrics.replace(/\s/gm," ");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   phrases = lyrics.split(/\n/gm);
-  //phrases = clean(phrases)
+  phrases = clean(phrases)
   return removeDups(phrases);
 }
 
@@ -38,3 +44,7 @@ const getTerms = function(lyrics){
   terms = clean(terms)
   return removeDups(terms)
 }
+
+
+
+

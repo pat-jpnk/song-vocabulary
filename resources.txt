@@ -56,12 +56,7 @@ ________________________________________________________
 
 
 
-
-- replace "\r\n" with "\n"
-  
-
-- split(" ") THEN remove "" (i.e. all empty array entries that only contain a space)
-
+- show total 
 
 ______________________________________________________
 user workflow: 
@@ -73,4 +68,35 @@ user workflow:
 - click "extract vocabulary"
 
 - download file
+
+_______________________________________________________
+
+
+ARIST_NAME-SONG_NAME.txt
+
+
+______________________________________________________
+
+Study methodology: 
+
+
+- Download file 
+
+- Go through the list to terms and delete all trivial and invalid terms 
+- Translate leftover terms and note information for study
+- Go through the list of phrases and delete all trivial and invalid phrases
+- Translate leftover terms and note information for study  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
