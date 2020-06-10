@@ -11,7 +11,7 @@ _______________________________________________________
 This was supposed to include an automatic translation 
 function via an api, however, it turns out that the veracity of the 
 free translation options tried (e.g. Yandex) were not satisfactory 
-in their accuracy.A higher quality translation solution (e.g. DeepL api)
+in their accuracy. A higher quality translation solution (e.g. DeepL api)
 could be an alternative.
 
 It will nonetheless be a learning benefit to the student to research
@@ -74,7 +74,9 @@ _______________________________________________________
 
 ARIST_NAME-SONG_NAME.txt
 
+clear "Unique terms" and "Unique phrases" ON 'clear'
 
+de-activate file download upon 'clear'
 ______________________________________________________
 
 Study methodology: 

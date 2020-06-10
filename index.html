@@ -3,22 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Song vocabulary</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="uikit.min.css">
 </head>
-<body style="background-color: lightblue"> 
+<body style="background-color: mediumspringgreen">
 
 		
 	<form>
 
-	<textarea id="lyrics" name="lyrics" cols="50" rows="20">
-	Еще одна минута вечера
-	И мы с тобой вот-вот увидимся
-	Ты будешь говорить о вечности
-	А я курить и хотеть просто близости
-	Еще одна минута вечера
-	И мы с тобой вот-вот увидимся
-	Ты будешь говорить о вечности
-	А я курить и хотеть просто близости
-	</textarea>
+	<textarea id="lyrics" name="lyrics" cols="50" rows="20"></textarea>
 
 
 	<button id="extract-button">Extract vocabulary</button>
@@ -27,122 +20,73 @@
 
 	</form>
 
-	<h4 id="phraseCount"></h4>
+	<!-- download file -->
 
-	<h4 id="termsCount"></h4>
+	<button disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
+	<!------------------------>
+
+	<h4>Unique phrases: <span id="phraseCount"></span></h4>
+
+	<h4>Unique terms: <span id="termCount"></span></h4>
 	
 	<script src="functions.js"></script>
 
 	<script>
 
-
 			document.querySelector('#clear-button').addEventListener('click', function(e){
 				e.preventDefault()
 				document.querySelector('#lyrics').value = ""
+				document.querySelector('#phraseCount').innerHTML = ""
+				document.querySelector('#termCount').innerHTML = ""
+				document.querySelector("#text-file-link").href = ""
+				document.querySelector('#download-button').disabled = true
+				document.querySelector("#text-file-link").href = "#"
 			})
 
 			document.querySelector('#extract-button').addEventListener('click', function(e){
 				e.preventDefault()
-				let d = document.querySelector('#lyrics').value;
 				let lyrics = document.querySelector('#lyrics').value
 				lyrics = lyrics.trim();
 				lyrics = lyrics.replace(/\t|\.|\,/gm,"");
 
-				const phrases_ = getPhrases(lyrics)
-				const terms_ = getTerms(lyrics)
+				let phrases_ = getPhrases(lyrics)
+				let terms_ = getTerms(lyrics)
 
 
-				let phraseCount = document.querySelector('#termsCount')
-				let termCount = document.querySelector('#phraseCount')
+				let termCount = document.querySelector('#termCount')
+				let phraseCount = document.querySelector('#phraseCount')
 
-				phraseCount.textContent = "Unique phrases: " + phrases_.length.toString()
-				termCount.textContent = "Unique terms: " + terms_.length.toString()
+				phraseCount.innerHTML = phrases_.length.toString()
+				termCount.innerHTML = terms_.length.toString()
+
+				console.log(phraseCount.innerHTML)
+				console.log(termCount.innerHTML)
+
 
 				console.log(phrases_)
 				console.log(terms_)
 
+				let textFileContent = ""
+
+				textFileContent = textFileContent + "Terms:\n\n"
+				terms_.forEach(function(elem){
+					textFileContent = textFileContent + elem + "\n"
+				})
+
+				textFileContent = textFileContent + "\nPhrases:\n\n"
+				phrases_.forEach(function(elem){
+					textFileContent = textFileContent + elem + "\n"
+				})
 
 
-				//console.log(lyrics.split(/\n/gm));
+				let link = document.querySelector("#text-file-link")
+				link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
 
-
-			//	lyrics = lyrics.replace(/\t|\.|\,/gm,"");
-
-	//			lyrics.replace(/\s+/gm," "); //intentional
-				lyrics = lyrics.replace(/\s/gm," ");
-					
-				// terms without newline
-				let termString = lyrics.replace(/\n|\r\n/gm," ");
-				termString = termString.replace(/\?|\!/,"");
-					
-				let terms = termString.split(/(\s+)/gm);
-				
-				terms = removeDups(terms);
-					
-				// phrases with newline
-
-				//	console.log(lyrics);
-
-				let phrases = lyrics.split(/\n|\r\n/gm);
-
-				//console.log(phrases);
-
-				phrases = removeDups(phrases);
-
-			
-				/**
-				s1 = phrases[0]
-				s2 = phrases[4]
-
-					for (let index=0; index < s1.length; ++index ){
-						console.log("char" + index + ": " + s1.charCodeAt(index));
-					}
-
-					for (let index=0; index < s2.length; ++index){
-						console.log("char" + index + ": " + s2.charCodeAt(index));
-					}
-				**/
-
-		//		console.log(terms);
-
-				/**
-
-				// console.log(fuck.replace(/\?|\!|\.|\,/gm,""))
-
-
-			
-				// replace "\t" with ""
-			    let dd = d.replace(/\t/gm,"");
-				dd.replace(" ", " ");
-			   	
-				let withNewLine = (d.replace(/\t/gm,""));
-					
-			    let withoutNewLine = dd.replace(/\n|\r\n/gm," ");
-				
-
-				// print results
-				
-				//console.log(withoutNewLine.split(" "));
-
-                console.log(withoutNewLine.split(/(\s+)/));
-	
-				let result = withNewLine.split("\n");
-
-				console.log(removeDups(result))
-
-				console.log(withNewLine.split("\n"));
-
-				//console.log(d)
-				// replace \r\n with \n
-				//console.log(d.split(" "))
-
-
-				// remove empty array entries 
-				// remove "-","!","?",""
-
-				**/
+				document.querySelector('#download-button').disabled = false
 
 			})
+
+
 	
 	</script>
 
