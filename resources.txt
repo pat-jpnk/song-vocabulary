@@ -44,21 +44,8 @@ ________________________________________________________
 
 - write file and present for download
 
-________________________________________________________
-
-- ask for artist/songname (use as file name ?) 
-
-- how to handle invalid things to translate (Names, "sounds" e.g. "Boom, Oy, Ay")
-
-- does the html textarea field insert newline characters ?
-
-- use <pre></pre> tag ?
-
-
-
-- show total 
-
 ______________________________________________________
+
 user workflow: 
 
 - enter songtext
@@ -73,10 +60,6 @@ _______________________________________________________
 
 
 ARIST_NAME-SONG_NAME.txt
-
-clear "Unique terms" and "Unique phrases" ON 'clear'
-
-de-activate file download upon 'clear'
 ______________________________________________________
 
 Study methodology: 

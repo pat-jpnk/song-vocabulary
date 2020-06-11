@@ -37,13 +37,31 @@ const getPhrases = function(lyrics){
 const getTerms = function(lyrics){
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\n|\r\n/gm," ");
-  lyrics = lyrics.replace(/\?|\!|\.|\,/gm,"")
+  lyrics = lyrics.replace(/\?|\!|\.|\,|\"/gm,"")         // added filter out " \" "
   //lyrics = lyrics.replace(/\s+/gm," ");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   terms = lyrics.split(/(\s+)/gm);
   terms = clean(terms)
   return removeDups(terms)
 }
+
+
+
+const clear = function(e){
+  e.preventDefault()
+  document.querySelector('#lyrics').value = ""
+  document.querySelector('#phraseCount').innerHTML = ""
+  document.querySelector('#termCount').innerHTML = ""
+  document.querySelector("#text-file-link").href = ""
+  document.querySelector('#download-button').disabled = true
+  document.querySelector("#text-file-link").href = "#"
+}
+
+
+
+
+
+
 
 
 

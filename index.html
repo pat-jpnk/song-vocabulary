@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Song vocabulary</title>
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="uikit.min.css">
@@ -12,7 +13,6 @@
 	<form>
 
 	<textarea id="lyrics" name="lyrics" cols="50" rows="20"></textarea>
-
 
 	<button id="extract-button">Extract vocabulary</button>
 	
@@ -32,6 +32,7 @@
 	<script src="functions.js"></script>
 
 	<script>
+			/**
 
 			document.querySelector('#clear-button').addEventListener('click', function(e){
 				e.preventDefault()
@@ -42,6 +43,17 @@
 				document.querySelector('#download-button').disabled = true
 				document.querySelector("#text-file-link").href = "#"
 			})
+
+
+			**/
+
+
+			// Clear lyrics text field
+			document.querySelector('#clear-button').addEventListener('click', function(e){
+				clear(e);
+			})
+
+
 
 			document.querySelector('#extract-button').addEventListener('click', function(e){
 				e.preventDefault()
