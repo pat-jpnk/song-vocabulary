@@ -22,9 +22,9 @@ const clearLyrics = function(e){
 }
 
 const setTextFileLink = function(textFileContent){
+  document.querySelector('#download-button').disabled = false
   let link = document.querySelector("#text-file-link")
   link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
-  document.querySelector('#download-button').disabled = false
 }
 
 const setUniqueCounters = function(terms,phrases){
@@ -45,7 +45,7 @@ const removeDuplicates = xs => {
   return xs.reduce(collect, { seen: {}, result: [] }).result;
 };
 
-const clean = function(arr){
+const removeEmptyEntries = function(arr){
   return arr.filter(function(elem){
     return elem.replace(/\s/g,'').length
   })
@@ -56,9 +56,10 @@ const getPhrases = function(lyrics) {
   lyrics = lyrics.replace(/\t|\.|\,|\>|\<|\«|\»/gm,"");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   phrases = lyrics.split(/\n/gm);
-  phrases = clean(phrases)
+  phrases = removeEmptyEntries(phrases)
   return removeDuplicates(phrases);
 }
+
 
 const getTerms = function(lyrics) {
   lyrics = lyrics.trim();
@@ -66,7 +67,8 @@ const getTerms = function(lyrics) {
   lyrics = lyrics.replace(/\?|\!|\.|\,|\"|\>|\<|\«|\»/gm,"")         // added filter out " \" "
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   let terms = lyrics.split(/(\s+)/gm);
-  terms = clean(terms)
+  terms = removeEmptyEntries(terms)
+  console.log(terms)
   return removeDuplicates(terms)
 }
 
@@ -98,5 +100,10 @@ const buildTextFileContent = function(terms, phrases){
 
 document.querySelector('#clear-button').addEventListener('click',clearLyrics)
 document.querySelector('#extract-button').addEventListener('click',extractLyrics)
+
+
+document.querySelector('#lyrics').addEventListener('input', function(){
+    document.querySelector('#download-button').disabled = true
+})
 
 

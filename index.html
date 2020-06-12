@@ -7,21 +7,32 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="uikit.min.css">
 </head>
-<body style="background-color: mediumspringgreen">
+<body>
 
+<div class="uk-container uk-container-large">
+
+	<div uk-grid>
+
+	<h1 class="uk-heading-large">Lyrics to vocabularies</h1>
 		
-	<form>
-		<textarea id="lyrics" name="lyrics" cols="50" rows="20"></textarea>
-		<button id="extract-button">Extract vocabulary</button>
-		<button id="clear-button">Clear</button>
-	</form>
+		<div class="uk-width-3-4">
+		<textarea class="uk-textarea" id="lyrics" name="lyrics" cols="10" rows="25"></textarea>
+		</div>
 
-	<button disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
+
+		<button class="uk-button uk-button-default" id="extract-button">Extract vocabulary</button>
+		<button class="uk-button uk-button-default" id="clear-button">Clear</button>
+	
+
+	<button class="uk-button uk-button-default" disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
 
 	<h4>Unique phrases: <span id="phraseCount"></span></h4>
 	<h4>Unique terms: <span id="termCount"></span></h4>
 	
 	<script src="functions.js"></script>
+	
+	</div>
 
+</div>
 </body>
 </html>
