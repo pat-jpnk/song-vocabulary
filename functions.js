@@ -18,16 +18,56 @@ const clean = function(arr){
 }
 
 
+const extractLyrics = function(e){
+  e.preventDefault()
 
-const buildTextFile = function(terms, phraeses){
-  //...
+  let lyrics = document.querySelector('#lyrics').value
+  lyrics = lyrics.trim();
+  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
+
+  let phrases = getPhrases(lyrics)
+  let terms = getTerms(lyrics)
+
+
+  // set unique count
+  document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
+  document.querySelector('#termCount').innerHTML = terms.length.toString()
+
+
+  //
+
+  let textFileContent = buildTextFileContent(terms,phrases)
+
+  setTextFileLink(textFileContent)
+
+
+}
+
+
+const buildTextFileContent = function(terms, phrases){
+  let textFileContent = ""
+
+  let separator = "###############"
+
+
+  textFileContent = textFileContent + separator + "\nTerms:\n" + separator + "\n\n"
+  terms.forEach(function(elem){
+    textFileContent = textFileContent + elem + "\n"
+  })
+
+  textFileContent = textFileContent + "\n\n" + separator + "\nPhrases:\n" + separator + "\n\n"
+  phrases.forEach(function(elem){
+    textFileContent = textFileContent + elem + "\n"
+  })
+
+  return textFileContent
+
 }
 
 
 const getPhrases = function(lyrics){
   lyrics = lyrics.trim();
-  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
-  //lyrics = lyrics.replace(/\s/gm," ");
+  lyrics = lyrics.replace(/\t|\.|\,|\>|\<|\«|\»/gm,"");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   phrases = lyrics.split(/\n/gm);
   phrases = clean(phrases)
@@ -37,17 +77,16 @@ const getPhrases = function(lyrics){
 const getTerms = function(lyrics){
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\n|\r\n/gm," ");
-  lyrics = lyrics.replace(/\?|\!|\.|\,|\"/gm,"")         // added filter out " \" "
-  //lyrics = lyrics.replace(/\s+/gm," ");
+  lyrics = lyrics.replace(/\?|\!|\.|\,|\"|\>|\<|\«|\»/gm,"")         // added filter out " \" "
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
-  terms = lyrics.split(/(\s+)/gm);
+  let terms = lyrics.split(/(\s+)/gm);
   terms = clean(terms)
   return removeDups(terms)
 }
 
 
 
-const clear = function(e){
+const clearLyrics = function(e){
   e.preventDefault()
   document.querySelector('#lyrics').value = ""
   document.querySelector('#phraseCount').innerHTML = ""
@@ -57,6 +96,12 @@ const clear = function(e){
   document.querySelector("#text-file-link").href = "#"
 }
 
+
+const setTextFileLink = function(textFileContent){
+  let link = document.querySelector("#text-file-link")
+  link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
+  document.querySelector('#download-button').disabled = false
+}
 
 
 

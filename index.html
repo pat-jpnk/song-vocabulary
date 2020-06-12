@@ -32,30 +32,20 @@
 	<script src="functions.js"></script>
 
 	<script>
-			/**
-
-			document.querySelector('#clear-button').addEventListener('click', function(e){
-				e.preventDefault()
-				document.querySelector('#lyrics').value = ""
-				document.querySelector('#phraseCount').innerHTML = ""
-				document.querySelector('#termCount').innerHTML = ""
-				document.querySelector("#text-file-link").href = ""
-				document.querySelector('#download-button').disabled = true
-				document.querySelector("#text-file-link").href = "#"
-			})
-
-
-			**/
 
 
 			// Clear lyrics text field
 			document.querySelector('#clear-button').addEventListener('click', function(e){
-				clear(e);
+				clearLyrics(e);
 			})
 
 
 
 			document.querySelector('#extract-button').addEventListener('click', function(e){
+
+				extractLyrics(e);
+
+				/**
 				e.preventDefault()
 				let lyrics = document.querySelector('#lyrics').value
 				lyrics = lyrics.trim();
@@ -71,12 +61,12 @@
 				phraseCount.innerHTML = phrases_.length.toString()
 				termCount.innerHTML = terms_.length.toString()
 
-				console.log(phraseCount.innerHTML)
-				console.log(termCount.innerHTML)
+				//console.log(phraseCount.innerHTML)
+				//console.log(termCount.innerHTML)
 
 
-				console.log(phrases_)
-				console.log(terms_)
+				//console.log(phrases_)
+				//console.log(terms_)
 
 				let textFileContent = ""
 
@@ -95,6 +85,8 @@
 				link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
 
 				document.querySelector('#download-button').disabled = false
+
+				 **/
 
 			})
 
