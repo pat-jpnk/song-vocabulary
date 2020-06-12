@@ -11,13 +11,9 @@
 
 		
 	<form>
-
-	<textarea id="lyrics" name="lyrics" cols="50" rows="20"></textarea>
-
-	<button id="extract-button">Extract vocabulary</button>
-	
-	<button id="clear-button">Clear</button>
-
+		<textarea id="lyrics" name="lyrics" cols="50" rows="20"></textarea>
+		<button id="extract-button">Extract vocabulary</button>
+		<button id="clear-button">Clear</button>
 	</form>
 
 	<!-- download file -->
@@ -26,7 +22,6 @@
 	<!------------------------>
 
 	<h4>Unique phrases: <span id="phraseCount"></span></h4>
-
 	<h4>Unique terms: <span id="termCount"></span></h4>
 	
 	<script src="functions.js"></script>
@@ -35,12 +30,12 @@
 
 
 			// Clear lyrics text field
-			document.querySelector('#clear-button').addEventListener('click', function(e){
-				clearLyrics(e);
-			})
+			//document.querySelector('#clear-button').addEventListener('click', function(e){
+			//	clearLyrics(e);
+			//})
 
 
-
+			/**
 			document.querySelector('#extract-button').addEventListener('click', function(e){
 
 				extractLyrics(e);
@@ -88,7 +83,7 @@
 
 				 **/
 
-			})
+			//})
 
 
 	

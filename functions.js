@@ -1,5 +1,7 @@
-const removeDups = xs => {
- 
+
+
+const removeDuplicates = xs => {
+
   const collect = (r, x) => {
     if (!r.seen[x]) {
       r.result.push(x);
@@ -29,12 +31,8 @@ const extractLyrics = function(e){
   let terms = getTerms(lyrics)
 
 
-  // set unique count
-  document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
-  document.querySelector('#termCount').innerHTML = terms.length.toString()
+  setUniqueCounters(terms, phrases)
 
-
-  //
 
   let textFileContent = buildTextFileContent(terms,phrases)
 
@@ -46,9 +44,7 @@ const extractLyrics = function(e){
 
 const buildTextFileContent = function(terms, phrases){
   let textFileContent = ""
-
   let separator = "###############"
-
 
   textFileContent = textFileContent + separator + "\nTerms:\n" + separator + "\n\n"
   terms.forEach(function(elem){
@@ -61,29 +57,27 @@ const buildTextFileContent = function(terms, phrases){
   })
 
   return textFileContent
-
 }
 
 
-const getPhrases = function(lyrics){
+const getPhrases = function(lyrics) {
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\t|\.|\,|\>|\<|\«|\»/gm,"");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   phrases = lyrics.split(/\n/gm);
   phrases = clean(phrases)
-  return removeDups(phrases);
+  return removeDuplicates(phrases);
 }
 
-const getTerms = function(lyrics){
+const getTerms = function(lyrics) {
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\n|\r\n/gm," ");
   lyrics = lyrics.replace(/\?|\!|\.|\,|\"|\>|\<|\«|\»/gm,"")         // added filter out " \" "
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
   let terms = lyrics.split(/(\s+)/gm);
   terms = clean(terms)
-  return removeDups(terms)
+  return removeDuplicates(terms)
 }
-
 
 
 const clearLyrics = function(e){
@@ -104,10 +98,15 @@ const setTextFileLink = function(textFileContent){
 }
 
 
+const setUniqueCounters = function(terms,phrases){
+  document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
+  document.querySelector('#termCount').innerHTML = terms.length.toString()
+}
 
 
 
-
-
+// EventListeners
+document.querySelector('#clear-button').addEventListener('click',clearLyrics)
+document.querySelector('#extract-button').addEventListener('click',extractLyrics)
 
 
