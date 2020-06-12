@@ -16,79 +16,12 @@
 		<button id="clear-button">Clear</button>
 	</form>
 
-	<!-- download file -->
-
 	<button disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
-	<!------------------------>
 
 	<h4>Unique phrases: <span id="phraseCount"></span></h4>
 	<h4>Unique terms: <span id="termCount"></span></h4>
 	
 	<script src="functions.js"></script>
 
-	<script>
-
-
-			// Clear lyrics text field
-			//document.querySelector('#clear-button').addEventListener('click', function(e){
-			//	clearLyrics(e);
-			//})
-
-
-			/**
-			document.querySelector('#extract-button').addEventListener('click', function(e){
-
-				extractLyrics(e);
-
-				/**
-				e.preventDefault()
-				let lyrics = document.querySelector('#lyrics').value
-				lyrics = lyrics.trim();
-				lyrics = lyrics.replace(/\t|\.|\,/gm,"");
-
-				let phrases_ = getPhrases(lyrics)
-				let terms_ = getTerms(lyrics)
-
-
-				let termCount = document.querySelector('#termCount')
-				let phraseCount = document.querySelector('#phraseCount')
-
-				phraseCount.innerHTML = phrases_.length.toString()
-				termCount.innerHTML = terms_.length.toString()
-
-				//console.log(phraseCount.innerHTML)
-				//console.log(termCount.innerHTML)
-
-
-				//console.log(phrases_)
-				//console.log(terms_)
-
-				let textFileContent = ""
-
-				textFileContent = textFileContent + "Terms:\n\n"
-				terms_.forEach(function(elem){
-					textFileContent = textFileContent + elem + "\n"
-				})
-
-				textFileContent = textFileContent + "\nPhrases:\n\n"
-				phrases_.forEach(function(elem){
-					textFileContent = textFileContent + elem + "\n"
-				})
-
-
-				let link = document.querySelector("#text-file-link")
-				link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
-
-				document.querySelector('#download-button').disabled = false
-
-				 **/
-
-			//})
-
-
-	
-	</script>
-
-	
 </body>
 </html>

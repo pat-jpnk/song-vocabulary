@@ -23,19 +23,12 @@ const clean = function(arr){
 const extractLyrics = function(e){
   e.preventDefault()
 
-  let lyrics = document.querySelector('#lyrics').value
-  lyrics = lyrics.trim();
-  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
-
+  let lyrics = getLyrics()
   let phrases = getPhrases(lyrics)
   let terms = getTerms(lyrics)
-
-
-  setUniqueCounters(terms, phrases)
-
-
   let textFileContent = buildTextFileContent(terms,phrases)
 
+  setUniqueCounters(terms, phrases)
   setTextFileLink(textFileContent)
 
 
@@ -59,6 +52,12 @@ const buildTextFileContent = function(terms, phrases){
   return textFileContent
 }
 
+const getLyrics = function(){
+  let lyrics = document.querySelector('#lyrics').value
+  lyrics = lyrics.trim();
+  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
+  return lyrics
+}
 
 const getPhrases = function(lyrics) {
   lyrics = lyrics.trim();

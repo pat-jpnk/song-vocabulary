@@ -59,6 +59,10 @@ user workflow:
 _______________________________________________________
 
 
+Font:
+
+https://fonts.google.com/specimen/Major+Mono+Display?category=Monospace&preview.text=Lyrics+to+vocabularies.+Made+with+Love+for+language+learning&preview.text_type=custom&selection.family=Major+Mono+Display&sidebar.open#standard-styles
+
 ARIST_NAME-SONG_NAME.txt
 ______________________________________________________
 
