@@ -1,25 +1,3 @@
-
-
-const removeDuplicates = xs => {
-
-  const collect = (r, x) => {
-    if (!r.seen[x]) {
-      r.result.push(x);
-      r.seen[x] = true;
-    }
-    return r;
-  };
-
-  return xs.reduce(collect, { seen: {}, result: [] }).result;
-};
-
-const clean = function(arr){
-  return arr.filter(function(elem){
-    return elem.replace(/\s/g,'').length
-  })
-}
-
-
 const extractLyrics = function(e){
   e.preventDefault()
 
@@ -31,32 +9,46 @@ const extractLyrics = function(e){
   setUniqueCounters(terms, phrases)
   setTextFileLink(textFileContent)
 
-
 }
 
-
-const buildTextFileContent = function(terms, phrases){
-  let textFileContent = ""
-  let separator = "###############"
-
-  textFileContent = textFileContent + separator + "\nTerms:\n" + separator + "\n\n"
-  terms.forEach(function(elem){
-    textFileContent = textFileContent + elem + "\n"
-  })
-
-  textFileContent = textFileContent + "\n\n" + separator + "\nPhrases:\n" + separator + "\n\n"
-  phrases.forEach(function(elem){
-    textFileContent = textFileContent + elem + "\n"
-  })
-
-  return textFileContent
+const clearLyrics = function(e){
+  e.preventDefault()
+  document.querySelector('#lyrics').value = ""
+  document.querySelector('#phraseCount').innerHTML = ""
+  document.querySelector('#termCount').innerHTML = ""
+  document.querySelector("#text-file-link").href = ""
+  document.querySelector('#download-button').disabled = true
+  document.querySelector("#text-file-link").href = "#"
 }
 
-const getLyrics = function(){
-  let lyrics = document.querySelector('#lyrics').value
-  lyrics = lyrics.trim();
-  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
-  return lyrics
+const setTextFileLink = function(textFileContent){
+  let link = document.querySelector("#text-file-link")
+  link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
+  document.querySelector('#download-button').disabled = false
+}
+
+const setUniqueCounters = function(terms,phrases){
+  document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
+  document.querySelector('#termCount').innerHTML = terms.length.toString()
+}
+
+// Utility functions
+
+const removeDuplicates = xs => {
+  const collect = (r, x) => {
+    if (!r.seen[x]) {
+      r.result.push(x);
+      r.seen[x] = true;
+    }
+    return r;
+  };
+  return xs.reduce(collect, { seen: {}, result: [] }).result;
+};
+
+const clean = function(arr){
+  return arr.filter(function(elem){
+    return elem.replace(/\s/g,'').length
+  })
 }
 
 const getPhrases = function(lyrics) {
@@ -78,33 +70,32 @@ const getTerms = function(lyrics) {
   return removeDuplicates(terms)
 }
 
-
-const clearLyrics = function(e){
-  e.preventDefault()
-  document.querySelector('#lyrics').value = ""
-  document.querySelector('#phraseCount').innerHTML = ""
-  document.querySelector('#termCount').innerHTML = ""
-  document.querySelector("#text-file-link").href = ""
-  document.querySelector('#download-button').disabled = true
-  document.querySelector("#text-file-link").href = "#"
+const getLyrics = function(){
+  let lyrics = document.querySelector('#lyrics').value
+  lyrics = lyrics.trim();
+  lyrics = lyrics.replace(/\t|\.|\,/gm,"");
+  return lyrics
 }
 
+const buildTextFileContent = function(terms, phrases){
+  let textFileContent = ""
+  let separator = "###############"
 
-const setTextFileLink = function(textFileContent){
-  let link = document.querySelector("#text-file-link")
-  link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
-  document.querySelector('#download-button').disabled = false
+  textFileContent = textFileContent + separator + "\nTerms:\n" + separator + "\n\n"
+  terms.forEach(function(elem){
+    textFileContent = textFileContent + elem + "\n"
+  })
+
+  textFileContent = textFileContent + "\n\n" + separator + "\nPhrases:\n" + separator + "\n\n"
+  phrases.forEach(function(elem){
+    textFileContent = textFileContent + elem + "\n"
+  })
+
+  return textFileContent
 }
-
-
-const setUniqueCounters = function(terms,phrases){
-  document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
-  document.querySelector('#termCount').innerHTML = terms.length.toString()
-}
-
-
 
 // EventListeners
+
 document.querySelector('#clear-button').addEventListener('click',clearLyrics)
 document.querySelector('#extract-button').addEventListener('click',extractLyrics)
 
