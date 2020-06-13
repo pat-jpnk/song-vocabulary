@@ -45,26 +45,6 @@ ________________________________________________________
 
 ______________________________________________________
 
-user workflow: 
-
-- enter songtext
-
-- select file output format 
-
-- click "extract vocabulary"
-
-- download file
-
-_______________________________________________________
-
-
-Font:
-
-https://fonts.google.com/specimen/Major+Mono+Display?category=Monospace&preview.text=Lyrics+to+vocabularies.+Made+with+Love+for+language+learning&preview.text_type=custom&selection.family=Major+Mono+Display&sidebar.open#standard-styles
-
-ARIST_NAME-SONG_NAME.txt
-______________________________________________________
-
 Study methodology: 
 
 
@@ -73,7 +53,7 @@ Study methodology:
 - Go through the list to terms and delete all trivial and invalid terms 
 - Translate leftover terms and note information for study
 - Go through the list of phrases and delete all trivial and invalid phrases
-- Translate leftover terms and note information for study  
+- Translate leftover terms and make notes for study
 
 
 
