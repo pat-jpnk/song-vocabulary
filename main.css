@@ -1,0 +1,36 @@
+@font-face {
+	font-family: 'Major Mono Display';
+	src: url("/fonts/MajorMonoDisplay-Regular.ttf") format('truetype'),
+		 url("fonts/MajorMonoDisplay-Regular.woff") format('woff'),
+	 	 url("fonts/MajorMonoDisplay-Regular.woff2") format('woff2');
+}
+
+body {
+	height: 100%;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+#text-file-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+#lyrics {
+	outline: none;
+	overflow: auto;
+	resize: none;
+
+}
+
+
+#header {
+	display: flex;
+	justify-content: center;
+}
+
+#headline {
+	font-family: "Major Mono Display", monospace, "Helvetica";
+}

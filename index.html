@@ -4,34 +4,49 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Song vocabulary</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="uikit.min.css">
 </head>
 <body>
 
 <div class="uk-container uk-container-large">
 
-	<div uk-grid>
 
-	<h1 class="uk-heading-large">Lyrics to vocabularies</h1>
-		
-		<div class="uk-width-3-4">
+	<div id="header">
+		<h2 id="headline" class="uk-heading-large">Lyrics To Vocabulary</h2>
+	</div>
+
+	<div uk-grid style="display: flex">
+
+		<div class="uk-width-1-2">
 		<textarea class="uk-textarea" id="lyrics" name="lyrics" cols="10" rows="25"></textarea>
 		</div>
 
+		<div class="uk-width-1-2" style="display:flex; flex-direction: column; padding: 1em">
+			<div style="height:70%; border: 1px red solid">
+				<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+					<h3 class="uk-card-title">Unique phrases:</h3>
+					<p><span id="phraseCount"></span></p>
+					<h3 class="uk-card-title">Unique terms:</h3>
+					<p><span id="termCount"></span></p>
+				</div>
+			</div>
 
-		<button class="uk-button uk-button-default" id="extract-button">Extract vocabulary</button>
-		<button class="uk-button uk-button-default" id="clear-button">Clear</button>
-	
+			<div style="height:30%; border: 1px red solid">
 
-	<button class="uk-button uk-button-default" disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
+				<Controls>
+					<button class="uk-button uk-button-default" id="extract-button">Extract vocabulary</button>
+					<button class="uk-button uk-button-default" id="clear-button">Clear</button>
+					<button class="uk-button uk-button-default" disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
+				</Controls>
 
-	<h4>Unique phrases: <span id="phraseCount"></span></h4>
-	<h4>Unique terms: <span id="termCount"></span></h4>
-	
-	<script src="functions.js"></script>
-	
+			</div>
+
+		</div>
 	</div>
+
+	<script src="functions.js"></script>
+
 
 </div>
 </body>
