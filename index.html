@@ -22,8 +22,9 @@
 		<textarea class="uk-textarea" id="lyrics" name="lyrics" cols="10" rows="25"></textarea>
 		</div>
 
-		<div class="uk-width-1-2" style="display:flex; flex-direction: column; padding: 1em">
-			<div style="height:70%; border: 1px red solid">
+		<div class="uk-width-1-2" style="display:flex; flex-direction: column;">
+
+			<div style="height:70%; border: 1px red solid; display: flex; align-items: center; justify-content: center;">
 				<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
 					<h3 class="uk-card-title">Unique phrases:</h3>
 					<p><span id="phraseCount"></span></p>
@@ -32,13 +33,11 @@
 				</div>
 			</div>
 
-			<div style="height:30%; border: 1px red solid">
+			<div style="height:30%; border: 1px red solid; display: flex; align-items: center; justify-content: space-evenly;"  uk-grid>
 
-				<Controls>
-					<button class="uk-button uk-button-default" id="extract-button">Extract vocabulary</button>
-					<button class="uk-button uk-button-default" id="clear-button">Clear</button>
-					<button class="uk-button uk-button-default" disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download file</a></button>
-				</Controls>
+				<button class="uk-button uk-button-default uk-button-secondary uk-width-1-4" id="extract-button">Extract</button>
+				<button class="uk-button uk-button-default uk-button-secondary uk-width-1-4" id="clear-button">Clear</button>
+				<button class="uk-button uk-button-default uk-button-danger uk-width-1-4" disabled="true" id="download-button"><a id="text-file-link" href="#" download="lyrics.txt">Download</a></button>
 
 			</div>
 
