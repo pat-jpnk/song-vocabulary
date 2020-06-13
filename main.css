@@ -35,3 +35,31 @@ body {
 #headline {
 	font-family: "Major Mono Display", monospace, "Helvetica";
 }
+
+#right-pane {
+	display:flex;
+	flex-direction: column;
+}
+
+#app-analytics {
+	height:70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#app-controls {
+	height:30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#clear-button {
+	margin-right: 1.5em
+}
+
+#extract-button {
+	margin-right: 1.5em
+}
+
