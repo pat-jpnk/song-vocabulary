@@ -1,4 +1,7 @@
 Is not ready :/ To be continued...
+
+TODO: 
+- fix lagging download button
 __________________________________
 
 Make language learning fun
