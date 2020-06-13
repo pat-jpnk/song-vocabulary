@@ -35,6 +35,7 @@ body {
 #headline {
 	font-family: "Major Mono Display", monospace, "Helvetica";
 	pointer-events: none;
+	user-select: none;
 }
 
 #main {
