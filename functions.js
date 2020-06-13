@@ -14,8 +14,8 @@ const extractLyrics = function(e){
 const clearLyrics = function(e){
   e.preventDefault()
   document.querySelector('#lyrics').value = ""
-  document.querySelector('#phraseCount').innerHTML = ""
-  document.querySelector('#termCount').innerHTML = ""
+  document.querySelector('#phraseCount').innerHTML = "0"
+  document.querySelector('#termCount').innerHTML = "0"
   document.querySelector("#text-file-link").href = ""
   document.querySelector('#download-button').disabled = true
   document.querySelector("#text-file-link").href = "#"
