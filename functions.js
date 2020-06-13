@@ -25,6 +25,7 @@ const setTextFileLink = function(textFileContent){
   document.querySelector('#download-button').disabled = false
   let link = document.querySelector("#text-file-link")
   link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
+  document.querySelector('#download-button').click()
 }
 
 const setUniqueCounters = function(terms,phrases){
