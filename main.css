@@ -36,6 +36,10 @@ body {
 	font-family: "Major Mono Display", monospace, "Helvetica";
 }
 
+#main {
+	display: flex;
+}
+
 #right-pane {
 	display:flex;
 	flex-direction: column;
