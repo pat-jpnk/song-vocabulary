@@ -19,21 +19,23 @@
 	<div uk-grid style="display: flex">
 
 		<div class="uk-width-1-2">
-		<textarea class="uk-textarea" id="lyrics" name="lyrics" cols="10" rows="25"></textarea>
+		<textarea class="uk-textarea" id="lyrics" name="lyrics" cols="10" rows="25" autofocus></textarea>
 		</div>
 
 		<div class="uk-width-1-2" style="display:flex; flex-direction: column;">
 
 			<div style="height:70%; border: 1px red solid; display: flex; align-items: center; justify-content: center;">
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-					<h3 class="uk-card-title">Unique phrases:</h3>
-					<p><span id="phraseCount"></span></p>
-					<h3 class="uk-card-title">Unique terms:</h3>
-					<p><span id="termCount"></span></p>
+
+				<div class="uk-card uk-card-default uk-card-body uk-width-3-4@m">
+					<h3 class="uk-card-title">Unique phrases</h3>
+					<p class="uk-text-center uk-text-bold uk-text-large"><span id="phraseCount">0</span></p>
+					<h3 class="uk-card-title">Unique terms</h3>
+					<p class="uk-text-center uk-text-bold uk-text-large"><span id="termCount">0</span></p>
+
 				</div>
 			</div>
 
-			<div style="height:30%; border: 1px red solid; display: flex; align-items: center; justify-content: space-evenly;"  uk-grid>
+			<div style="height:30%; border: 1px red solid; display: flex; align-items: center; justify-content: center;"  uk-grid>
 
 				<button class="uk-button uk-button-default uk-button-secondary uk-width-1-4" id="extract-button">Extract</button>
 				<button class="uk-button uk-button-default uk-button-secondary uk-width-1-4" id="clear-button">Clear</button>
