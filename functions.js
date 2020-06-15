@@ -1,4 +1,4 @@
-const extractLyrics = function(e){
+const extractLyrics = (e) => {
   e.preventDefault()
 
   let lyrics = getLyrics()
@@ -11,7 +11,7 @@ const extractLyrics = function(e){
 
 }
 
-const clearLyrics = function(e){
+const clearLyrics =(e) => {
   e.preventDefault()
   document.querySelector('#lyrics').value = ""
   document.querySelector('#phraseCount').innerHTML = "0"
@@ -21,21 +21,21 @@ const clearLyrics = function(e){
   document.querySelector("#text-file-link").href = "#"
 }
 
-const setTextFileLink = function(textFileContent){
+const setTextFileLink = (textFileContent) => {
   document.querySelector('#download-button').disabled = false
   let link = document.querySelector("#text-file-link")
   link.href = "data:text/plan;charset=UTF-8,"+ encodeURIComponent(textFileContent)
   document.querySelector('#download-button').click()
 }
 
-const setUniqueCounters = function(terms,phrases){
+const setUniqueCounters = (terms,phrases) => {
   document.querySelector('#phraseCount').innerHTML = phrases.length.toString()
   document.querySelector('#termCount').innerHTML = terms.length.toString()
 }
 
 // Utility functions
 
-const removeDuplicates = xs => {
+const removeDuplicates = (xs) => {
   const collect = (r, x) => {
     if (!r.seen[x]) {
       r.result.push(x);
@@ -46,13 +46,13 @@ const removeDuplicates = xs => {
   return xs.reduce(collect, { seen: {}, result: [] }).result;
 };
 
-const removeEmptyEntries = function(arr){
+const removeEmptyEntries = (arr) => {
   return arr.filter(function(elem){
     return elem.replace(/\s/g,'').length
   })
 }
 
-const getPhrases = function(lyrics) {
+const getPhrases = (lyrics) => {
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\t|\.|\,|\>|\<|\«|\»/gm,"");
   lyrics = lyrics.replace(/[\u00A0\u1680\u180e\u2000-\u2009\u200a\u200b\u202f\u205f\u3000\u0020]/gm," ")
@@ -62,7 +62,7 @@ const getPhrases = function(lyrics) {
 }
 
 
-const getTerms = function(lyrics) {
+const getTerms = (lyrics) => {
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\n|\r\n/gm," ");
   lyrics = lyrics.replace(/\?|\!|\.|\,|\"|\>|\<|\«|\»/gm,"")
@@ -73,14 +73,14 @@ const getTerms = function(lyrics) {
   return removeDuplicates(terms)
 }
 
-const getLyrics = function(){
+const getLyrics = () => {
   let lyrics = document.querySelector('#lyrics').value
   lyrics = lyrics.trim();
   lyrics = lyrics.replace(/\t|\.|\,/gm,"");
   return lyrics
 }
 
-const buildTextFileContent = function(terms, phrases){
+const buildTextFileContent = (terms, phrases) => {
   let textFileContent = ""
   let separator = "###############"
 
@@ -100,8 +100,8 @@ const buildTextFileContent = function(terms, phrases){
 // EventListeners
 
 document.querySelector('#clear-button').addEventListener('click',clearLyrics)
-document.querySelector('#extract-button').addEventListener('click',extractLyrics)
 
+document.querySelector('#extract-button').addEventListener('click',extractLyrics)
 
 document.querySelector('#lyrics').addEventListener('input', function(){
     document.querySelector('#download-button').disabled = true
