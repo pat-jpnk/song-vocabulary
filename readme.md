@@ -27,8 +27,6 @@ Study methodology:
 lyrics, line breaks are only recognized if the 'enter' key
 is used explicitly
 
-(to be expanded on later...)
-
 ### General information
 
 This was supposed to include an automatic translation 
