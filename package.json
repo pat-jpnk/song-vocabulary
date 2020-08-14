@@ -1,0 +1,36 @@
+{
+  "name": "SongVocabulary",
+  "version": "1.0.0",
+  "description": "Make language learning fun",
+  "main": "src/functions.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/functions.js --out-file src/main.js --presets env --watch",
+    "webpack": "webpack",
+    "serve": "live-server public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pat-jpnk/SongVocabulary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pat-jpnk/SongVocabulary/issues"
+  },
+  "homepage": "https://github.com/pat-jpnk/SongVocabulary#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "live-server": "^1.2.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
+}

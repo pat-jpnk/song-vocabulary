@@ -1,0 +1,79 @@
+@font-face {
+	font-family: 'Major Mono Display';
+	src:url("../assets/fonts/MajorMonoDisplay-Regular.ttf") format('truetype'),
+		  url("../assets/fonts/MajorMonoDisplay-Regular.woff") format('woff'),
+	 	  url("../assets/fonts/MajorMonoDisplay-Regular.woff2") format('woff2');
+}
+
+body {
+	height: 100%;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+#text-file-link {
+	color: inherit;
+	text-decoration: none;
+	padding: 0.5em;
+	display: inline;
+}
+
+
+#lyrics {
+	outline: none;
+	overflow: auto;
+	resize: none;
+	border-color: lightgrey;
+
+}
+
+
+#header {
+	display: flex;
+	justify-content: center;
+}
+
+#headline {
+	font-family: "Major Mono Display", monospace, "Helvetica";
+	pointer-events: none;
+	user-select: none;
+}
+
+#main {
+	display: flex;
+}
+
+#right-pane {
+	display:flex;
+	flex-direction: column;
+}
+
+#app-analytics {
+	height:70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#app-controls {
+	height:30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#clear-button {
+	margin-right: 1.5em
+}
+
+#extract-button {
+	margin-right: 1.5em
+}
+
+#description-text {
+	width: 36em;
+	margin: 0 0 0 4em;
+	text-align: justify;
+}
+
