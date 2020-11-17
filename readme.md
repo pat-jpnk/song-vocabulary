@@ -3,7 +3,7 @@ Make language learning fun
 ================================================ 
 
 This thing is only marginally useful, but I built it for fun when I learned that you can
-implement file creation and download in exclusively in the front-end.
+implement file creation and download in exclusively the front-end.
 
 ### Glossary
 
